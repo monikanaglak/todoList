@@ -3,17 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Todo List</title>
   </head>
   <body>
-    <header>Things to do </header>
+    <header>Things to do</header>
     <main>
       <form action="submit" data-form>
         <input type="text" data-input />
         <select name="type" id="selectedElement">
           <option value="buy">Buy</option>
-          <option value="appaointement">Appointment</option>
+          <option value="app">Appointment</option>
           <option value="learn">Learn</option>
           <option value="clean">Clean</option>
           <option value="sport">Sport</option>
@@ -21,8 +27,24 @@
 
         <button type="submit" class="btn">Add</button>
       </form>
+      
       <section>
-        Things to do:
+        <div class="buy">
+            <p>Buy</p>
+            <div class="buyTodo"></div>
+        </div>
+        <div class="appointment">
+            <p>Appointment</p>
+            <div class="appointmentTodo"></div>
+        </div>
+        <div class="learn">
+            <p>Learn</p>
+            <div class="learnTodo"></div>
+        </div>
+        <div class="clean">
+          <p>Clean</p>
+          <div class="cleanTodo"></div>
+        </div>
         <article class="article"></article>
       </section>
     </main>

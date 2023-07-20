@@ -1,7 +1,11 @@
 const form = document.querySelector("[data-form]");
-const article = document.querySelector('.article');
 const input = document.querySelector("[data-input]");
-const selectionList = document.getElementById('selectedElement')
+const selectionList = document.getElementById('selectedElement');
+const buyTodo = document.querySelector('.buyTodo');
+const appointmentTodo = document.querySelector('.appointmentTodo');
+const learnTodo = document.querySelector('.learnTodo');
+const cleanTodo = document.querySelector('.cleanTodo');
+const article = document.querySelector('.article')
 let arrayTodo = [];
 
 //evenlistener making new thing to do
@@ -13,14 +17,22 @@ form.addEventListener('submit',(e)=>{
     let thing = input.value;
     let id = Math.random()*1000;
     let todo = new Todo(thing,id,selection)
-    input.value = " ";
-    console.log(selection)
-    if(selection === "clean"){
-        console.log("oh yeah")
-    }
     arrayTodo.push(todo)
-    console.log(arrayTodo)
-    DisplayDOM.Display()
+    input.value = " ";
+    if(selection === "clean"){
+        DisplayDOM.DisplayClean()
+    }
+    if(selection === "buy"){
+        DisplayDOM.DisplayBuy()
+    }
+    if(selection === "learn"){
+        DisplayDOM.DisplayLearn()
+    }
+    if(selection === "app"){
+        DisplayDOM.DisplayAppointment()
+    }
+    
+    
 
 })
 
@@ -34,18 +46,37 @@ class Todo{
 }
 //display to the DOM
 class DisplayDOM{
-    static Display(){
+    static DisplayBuy(){
         let thing = arrayTodo.map(article=>{
             return `
             <div>${article.todo}</div>
-            
-            <div>${article.selection}</div>
             `
         })
-        if(article.selection == 'clean'){
-            console.log("im here")
-            article.classList.add("red")
-        }
-        article.innerHTML = thing.join(" ");
+        buyTodo.innerHTML = thing.join(" ");
     }
+    static DisplayClean(){
+        let thing = arrayTodo.map(article=>{
+            return `
+            <div>${article.todo}</div>
+            `
+        })
+        cleanTodo.innerHTML = thing.join(" ");
+    }
+    static DisplayLearn(){
+        let thing = arrayTodo.map(article=>{
+            return `
+            <div>${article.todo}</div>
+            `
+        })
+        learnTodo.innerHTML = thing.join(" ");
+    }
+    static DisplayAppointment(){
+        let thing = arrayTodo.map(article=>{
+            return `
+            <div>${article.todo}</div>
+            `
+        })
+        appointmentTodo.innerHTML = thing.join(" ");
+    }
+
 }

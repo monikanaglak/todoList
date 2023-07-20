@@ -3,6 +3,11 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    
+    font-family: 'Poppins', sans-serif;
+    
+}
 header{
     display: flex;
     justify-content: center;
@@ -10,9 +15,7 @@ header{
     font-size: 2rem;
     text-transform: uppercase;
 }
-.red{
-    background-color: red;
-}
+
 main{
     max-width: 1400px;
     margin-left:auto;
@@ -36,4 +39,22 @@ form button{
 select{
     border-radius: 10px;
 
+}
+section{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 10vh;
+}
+section div{
+    width: 200px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section p{
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
 }
