@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+header{
+    display: flex;
+    justify-content: center;
+    margin-top: 8vh;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+.red{
+    background-color: red;
+}
+main{
+    max-width: 1400px;
+    margin-left:auto;
+    margin-right: auto;
+    background-color: pink;
+}
+form{
+    display: flex;
+    justify-content: center;
+}
+form input{
+    width: 500px;
+    padding: 10px;
+    border-radius: 10px;
+}
+form button{
+    border-radius: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+select{
+    border-radius: 10px;
+
+}
