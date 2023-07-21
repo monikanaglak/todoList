@@ -4,8 +4,8 @@
     box-sizing: border-box;
 }
 body{
-    
     font-family: 'Poppins', sans-serif;
+    background-color: yellow;
     
 }
 header{
@@ -15,12 +15,13 @@ header{
     font-size: 2rem;
     text-transform: uppercase;
 }
-
 main{
     max-width: 1400px;
     margin-left:auto;
     margin-right: auto;
-    background-color: pink;
+    background-color: white;
+    height: 80vh;
+    
 }
 form{
     display: flex;
@@ -38,6 +39,8 @@ form button{
 }
 select{
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
 
 }
 section{
@@ -57,4 +60,8 @@ section p{
     display: flex;
     justify-content: center;
     font-size: 2rem;
+}
+.buyTodo{
+    display: flex;
+    flex-direction: column;
 }
