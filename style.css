@@ -48,20 +48,8 @@ section{
     justify-content: space-around;
     width: 100%;
     margin-top: 10vh;
+    border:1px solid black;
 }
-section div{
-    width: 200px;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-section p{
-    display: flex;
-    justify-content: center;
+section header{
     font-size: 2rem;
-}
-.buyTodo{
-    display: flex;
-    flex-direction: column;
 }

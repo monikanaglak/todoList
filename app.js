@@ -15,20 +15,7 @@ form.addEventListener("submit", (e) => {
   let id = Math.random() * 1000;
   let todo = new Todo(thing, id, selection);
   arrayTodo.push(todo);
-  switch (selection) {
-    case "clean":
-      DisplayDOM.DisplayClean();
-      break;
-    case "buy":
-      DisplayDOM.DisplayBuy(todo);
-      break;
-    case "learn":
-      DisplayDOM.DisplayLearn();
-      break;
-    case "app":
-      DisplayDOM.DisplayAppointment();
-      break;
-  }
+  DisplayDOM.DisplayBuy(todo,selection)
 });
 
 //class for todo articles blueprint
@@ -41,13 +28,27 @@ class Todo {
 }
 //display to the DOM
 class DisplayDOM {
-  static DisplayBuy(todo) {
-    console.log(todo)
-    let kiki = document.createElement('p');
-    let glut = `${todo.todo}`;
-    kiki.textContent = glut
-    buyTodo.appendChild(kiki)
+  static DisplayBuy(todo,selection) {
+    let thing_todo = document.createElement('p');
+    let thing_todo_text = `${todo.todo}`;
+    thing_todo.innerHTML = thing_todo_text;
+    switch (selection) {
+      case "clean":
+        cleanTodo.appendChild(thing_todo)
+        break;
+      case "buy":
+        buyTodo.appendChild(thing_todo)
+        break;
+      case "learn":
+        learnTodo.appendChild(thing_todo)
+        break;
+      case "app":
+        appointmentTodo.appendChild(thing_todo)
+        break;
+    }
+    
   }
+  /*
   static DisplayClean() {
     let thing = arrayTodo.map((article) => {
       return `
@@ -73,5 +74,5 @@ class DisplayDOM {
             `;
     });
     appointmentTodo.innerHTML = thing.join(" ");
-  }
+  }*/
 }
