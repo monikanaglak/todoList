@@ -5,6 +5,7 @@ const buyTodo = document.querySelector(".buyTodo");
 const appointmentTodo = document.querySelector(".appointmentTodo");
 const learnTodo = document.querySelector(".learnTodo");
 const cleanTodo = document.querySelector(".cleanTodo");
+const section_list = document.querySelector(".sec")
 let arrayTodo = [];
 
 //evenlistener making new thing to do
@@ -16,6 +17,7 @@ form.addEventListener("submit", (e) => {
   let todo = new Todo(thing, id, selection);
   arrayTodo.push(todo);
   DisplayDOM.DisplayBuy(todo,selection)
+  
 });
 
 //class for todo articles blueprint
@@ -31,7 +33,20 @@ class DisplayDOM {
   static DisplayBuy(todo,selection) {
     let thing_todo = document.createElement('p');
     let thing_todo_text = `${todo.todo}`;
+    let ids = todo.id
     thing_todo.innerHTML = thing_todo_text;
+    let bin_element = document.createElement('img');
+    bin_element.src="./bin.png";
+    bin_element.classList.add("bin")
+    bin_element.setAttribute("id",ids);
+    bin_element.addEventListener('click',(e)=>{
+      let x = e.target.id;
+      //zeby wiedziec ktory z array usunac
+     let szukany = arrayTodo.filter(element=>element.id == x)
+     thing_todo.style.display="none"
+     
+    })
+    thing_todo.appendChild(bin_element)
     switch (selection) {
       case "clean":
         cleanTodo.appendChild(thing_todo)
@@ -48,31 +63,5 @@ class DisplayDOM {
     }
     
   }
-  /*
-  static DisplayClean() {
-    let thing = arrayTodo.map((article) => {
-      return `
-            <div>${article.todo}</div>
-            `;
-    });
-    cleanTodo.innerHTML = thing.join(" ");
-    console.log(arrayTodo);
-  }
-  static DisplayLearn() {
-    let thing = arrayTodo.map((article) => {
-      return `
-            <div>${article.todo}</div>
-            `;
-    });
-    learnTodo.innerHTML = thing.join(" ");
-  }
-  static DisplayAppointment() {
-    console.log(arrayTodo);
-    let thing = arrayTodo.map((article) => {
-      return `
-            <div>${article.todo}</div>
-            `;
-    });
-    appointmentTodo.innerHTML = thing.join(" ");
-  }*/
+   
 }
