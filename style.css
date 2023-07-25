@@ -5,8 +5,8 @@
 }
 body{
     font-family: 'Poppins', sans-serif;
-    background-color: yellow;
-    
+    background-image: url("agenda.jpg");
+    background-size: cover;
 }
 header{
     display: flex;
@@ -19,9 +19,9 @@ main{
     max-width: 1400px;
     margin-left:auto;
     margin-right: auto;
-    background-color: white;
-    height: 80vh;
-    
+    background-color:rgba(232,223,220);
+    opacity: 80%;
+    border-radius: 20px;
 }
 form{
     display: flex;
@@ -29,38 +29,39 @@ form{
 }
 form input{
     width: 500px;
-    padding: 10px;
+    padding: 12px;
     border-radius: 10px;
+    margin-top: 50px;
+    border:none;
 }
 form button{
     border-radius: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
+
+}
+#selectedElement{
+    width: 200px;
+    background-color: aqua;
 }
 select{
     border-radius: 10px;
     display: flex;
     justify-content: center;
-
+     height: auto;
 }
 section{
     display: flex;
     justify-content: space-around;
     width: 100%;
     margin-top: 10vh;
-    border:1px solid black;
 }
 section header{
     font-size: 2rem;
+    opacity: 100%;
 }
-.bin{
-    width: 25px;
-    height: 25px;
-}
+
 
 section .buy{
     width: 20vw;
-    border:1px solid red;
 }
 section p{
     display: flex;
@@ -69,4 +70,5 @@ section p{
     width: 100%;
     background-color: aquamarine;
     margin-top:10px;
+    margin:15px;
 }

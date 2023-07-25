@@ -5,9 +5,20 @@ const buyTodo = document.querySelector(".buyTodo");
 const appointmentTodo = document.querySelector(".appointmentTodo");
 const learnTodo = document.querySelector(".learnTodo");
 const cleanTodo = document.querySelector(".cleanTodo");
-const section_list = document.querySelector(".sec")
-let arrayTodo = [];
+const section_list = document.querySelector(".sec");
 
+class Storage{
+  static addToStorage(arrayTodo){
+     let storage = localStorage.setItem("todo", JSON.stringify(arrayTodo))
+     return storage;
+  }
+  static getStorage(){
+     let storage = localStorage.getItem("todo") === null ? [] : JSON.parse(localStorage.getItem("todo"));
+     return storage
+  }
+}
+let arrayTodo = Storage.getStorage();
+console.log(arrayTodo)
 //evenlistener making new thing to do
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -17,7 +28,7 @@ form.addEventListener("submit", (e) => {
   let todo = new Todo(thing, id, selection);
   arrayTodo.push(todo);
   DisplayDOM.DisplayBuy(todo,selection)
-  
+  Storage.addToStorage(arrayTodo)
 });
 
 //class for todo articles blueprint
@@ -44,8 +55,7 @@ class DisplayDOM {
       //zeby wiedziec ktory z array usunac
      let szukany = arrayTodo.filter(element=>element.id == x)
      thing_todo.style.display="none"
-     
-    })
+})
     thing_todo.appendChild(bin_element)
     switch (selection) {
       case "clean":
@@ -63,5 +73,11 @@ class DisplayDOM {
     }
     
   }
-   
 }
+
+window.addEventListener("DOMContentLoaded",() =>{
+  arrayTodo.forEach(todo => {
+    DisplayDOM.DisplayBuy(todo,todo.selection)
+  });
+  
+})
