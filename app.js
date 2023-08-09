@@ -16,10 +16,13 @@ class Storage{
      let storage = localStorage.getItem("todo") === null ? [] : JSON.parse(localStorage.getItem("todo"));
      return storage
   }
+  static removeStorage(todo){
+    localStorage.removeItem("todo")
+  }
 }
 let arrayTodo = Storage.getStorage();
-console.log(arrayTodo)
-//evenlistener making new thing to do
+
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   let selection = selectionList.value;
@@ -51,9 +54,10 @@ class DisplayDOM {
     bin_element.classList.add("bin")
     bin_element.setAttribute("id",ids);
     bin_element.addEventListener('click',(e)=>{
-      let x = e.target.id;
-      //zeby wiedziec ktory z array usunac
-     let szukany = arrayTodo.filter(element=>element.id == x)
+    let ids_clicked = e.target.id;
+    //getting id of element to remove, remove from the localstorage as well
+    let todo_to_delete = arrayTodo.filter(element=>element.id == ids_clicked);
+     Storage.removeStorage(todo_to_delete)
      thing_todo.style.display="none"
 })
     thing_todo.appendChild(bin_element)
