@@ -34,7 +34,7 @@ form.addEventListener("submit", (e) => {
   Storage.addToStorage(arrayTodo)
 });
 
-//class for todo articles blueprint
+
 class Todo {
   constructor(todo, id, selection) {
     this.todo = todo;
