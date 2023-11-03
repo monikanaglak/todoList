@@ -6,7 +6,7 @@ const appointmentTodo = document.querySelector(".appointmentTodo");
 const learnTodo = document.querySelector(".learnTodo");
 const cleanTodo = document.querySelector(".cleanTodo");
 const section_list = document.querySelector(".sec");
-
+//localstorage
 class Storage{
   static addToStorage(arrayTodo){
      let storage = localStorage.setItem("todo", JSON.stringify(arrayTodo))
